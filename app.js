@@ -10,7 +10,7 @@ const presidents = [
   { name: "Richard Nixon", terms: 2, party: "R" },
   { name: "John F. Kennedy", terms: 1, party: "D" },
   { name: "Lyndon Johnson", terms: 2, party: "D" },
-  { name: "Dwight Eisenhower", terms: 2, party: "R" },
+  { name: "Dwight Eisenhower", id="lbj", terms: 2, party: "R" },
 ];
 
 //Challenge Questions
@@ -25,7 +25,21 @@ const oneTerm = presidents.filter(function (president) {
 });
 console.table(oneTerm);
 //3) return only the last three presidents
-
+const three = presidents.slice(0, 3);
+console.table(three);
 //4) log all dems who served 2 terms. HINT use chain filter, filter and slice
-
+const twoTerms = presidents.filter(function (president) {
+  if (president.terms === 2 && president.party === "D") {
+    return true;
+  }
+});
+console.table(twoTerms);
 //BONUS write a script to check if LBJ was a 2 term president. IF he was then alert("LBJ served two terms") else alert "LBJ was one and done"
+const lyndon = presidents.filter(function(president){
+  if(president.id === lbj && president.terms === 2){
+    console.log("LBJ served two terms")
+  }
+  else{
+console.log("LBJ was one and done")
+  }
+})
